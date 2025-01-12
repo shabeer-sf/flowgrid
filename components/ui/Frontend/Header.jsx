@@ -4,8 +4,10 @@ import { PenBox } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import UserMenu from "./UserMenu";
+import { CheckUser } from "@/lib/checkUser";
 
-const Header = () => {
+const Header = async () => {
+  await CheckUser();
   return (
     <header className="container mx-auto">
       <nav className="py-6 px-4 flex justify-between items-center gap-2">
@@ -20,19 +22,18 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center gap-4">
-          
           <SignedOut>
             <SignInButton forceRedirectUrl="/onboarding">
               <Button variant="outline">Login</Button>
             </SignInButton>
           </SignedOut>
           <SignedIn>
-          <Link href={"/project/create"}>
-            <Button variant="destructive" className="flex items-center gap-2">
-              <PenBox size={18} />
-              <span>Create Project</span>
-            </Button>
-          </Link>
+            <Link href={"/project/create"}>
+              <Button variant="destructive" className="flex items-center gap-2">
+                <PenBox size={18} />
+                <span>Create Project</span>
+              </Button>
+            </Link>
             <UserMenu />
           </SignedIn>
         </div>
