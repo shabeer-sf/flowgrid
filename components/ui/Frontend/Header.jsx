@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import UserMenu from "./UserMenu";
 import { CheckUser } from "@/lib/checkUser";
+import UserLoading from "./UserLoading";
 
 const Header = async () => {
   await CheckUser();
@@ -38,6 +39,7 @@ const Header = async () => {
           </SignedIn>
         </div>
       </nav>
+      <UserLoading />
     </header>
   );
 };
