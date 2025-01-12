@@ -8,7 +8,7 @@ import UserMenu from "./UserMenu";
 const Header = () => {
   return (
     <header className="container mx-auto">
-      <nav className="py-6 px-4 flex justify-between items-center">
+      <nav className="py-6 px-4 flex justify-between items-center gap-2">
         <Link href={"/"}>
           <Image
             src={"/logo2.png"}
@@ -20,18 +20,19 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center gap-4">
-          <Link href={"/project/create"}>
-            <Button variant="destructive" className="flex items-center gap-2">
-              <PenBox size={18} />
-              <span>Create Project</span>
-            </Button>
-          </Link>
+          
           <SignedOut>
             <SignInButton forceRedirectUrl="/onboarding">
               <Button variant="outline">Login</Button>
             </SignInButton>
           </SignedOut>
           <SignedIn>
+          <Link href={"/project/create"}>
+            <Button variant="destructive" className="flex items-center gap-2">
+              <PenBox size={18} />
+              <span>Create Project</span>
+            </Button>
+          </Link>
             <UserMenu />
           </SignedIn>
         </div>
