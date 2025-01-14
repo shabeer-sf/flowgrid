@@ -143,7 +143,7 @@ const CreateIssue = ({
                 htmlFor="description"
                 className="block text-sm font-medium mb-1"
               >
-                Description
+                Description 
               </label>
               <Controller
                 name="description"
